@@ -56,8 +56,8 @@ installDependencies(){
 
 installPyenv(){
     if [ ! -d ~/.pyenv ]; then
-        if [ -f ./pyenv-master.zip ]; then
-          unzip pyenv-master.zip && mv pyenv-master ~/.pyenv
+        if [ -f /tmp/pyenv-master.zip ]; then
+          unzip /tmp/pyenv-master.zip && mv ./pyenv-master ~/.pyenv
         else
           git clone https://github.com/pyenv/pyenv.git ~/.pyenv
         fi
