@@ -74,6 +74,7 @@ installPyenv(){
 checkVersion(){
     if [ -d ~/.pyenv/versions/$INSTALL_VERSION ]; then
         return 0
+    fi
     return 1
 }
 
