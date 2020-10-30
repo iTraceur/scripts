@@ -42,10 +42,10 @@ installDependencies(){
 
     if [[ ${PACKAGE_MANAGER} == 'yum' || ${PACKAGE_MANAGER} == 'dnf' ]]; then
         ${PACKAGE_MANAGER} groupinstall -y "Development tools"
-        ${PACKAGE_MANAGER} install -y epel-release tk-devel xz-devel gdbm-devel sqlite-devel bzip2-devel readline-devel zlib-devel openssl-devel libffi-devel unzip
+        ${PACKAGE_MANAGER} install -y epel-release python-devel tk-devel xz-devel gdbm-devel sqlite-devel bzip2-devel readline-devel zlib-devel openssl-devel mysql-devel libffi-devel unzip
     else
         ${PACKAGE_MANAGER} install -y build-essential
-        ${PACKAGE_MANAGER} install -y uuid-dev tk-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev libreadline-dev zlib1g-dev libncursesw5-dev libssl-dev libffi-dev unzip
+        ${PACKAGE_MANAGER} install -y  python-dev uuid-dev tk-dev liblzma-dev libgdbm-dev libsqlite3-dev libbz2-dev libreadline-dev zlib1g-dev libncursesw5-dev libssl-dev libmysqlclient-dev libffi-dev unzip
     fi
 
     ${PACKAGE_MANAGER} install git wget python-pip python-virtualenv -y
@@ -64,7 +64,6 @@ installPyenv(){
         echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/$ENV_FILE
         echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/$ENV_FILE
         echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/$ENV_FILE
-        exec "$SHELL"
         source ~/$ENV_FILE
     fi
 
