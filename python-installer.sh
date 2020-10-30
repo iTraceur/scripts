@@ -80,7 +80,7 @@ checkVersion(){
 
 downloadPackage(){
     PYTHON_PACKAGE="Python-$INSTALL_VERSION.tar.xz"
-    wget https://cdn.npm.taobao.org/dist/python/$INSTALL_VERSION/$PYTHON_PACKAGE -P /tmp/$PYTHON_PACKAGE
+    wget https://cdn.npm.taobao.org/dist/python/$INSTALL_VERSION/$PYTHON_PACKAGE -P /tmp
     if [[ $? != 0 ]]; then
         colorEcho ${RED} "Fail download $PYTHON_PACKAGE version python!"
         rm -f /tmp/$PYTHON_PACKAGE
